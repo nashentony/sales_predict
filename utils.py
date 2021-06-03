@@ -114,7 +114,7 @@ def predict_n_months(sales_df, customers_df, n_month, lgb_model_path, report_fil
     last_ind = sales_df.tail(1).index.values[0]
     lgb_model = lgb.Booster(model_file=lgb_model_path)
     for i in range(n_month):        
-        new_month = predict_next_month(sales_df, customers_df, lgb_model, skip_no_price_items=True, use_norm_price=use_norm_price)
+        new_month = predict_next_month(sales_df, customers_df, lgb_model, skip_no_price_items=skip_no_price_items, use_norm_price=use_norm_price)
         year, month = new_month[['year','month']].head(1).values[0]
         predicted_volume = new_month['volume'].sum()
         if not check_tune:
