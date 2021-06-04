@@ -1,6 +1,6 @@
 
 # Python pipeline
-### Training an predict
+### Training and predict
 ```
 python run.py --mode=train --sales=data/sales.tsv --customers=data/customers.tsv --train_size=0.65 --output_model=models/5.model --n_month=3
 ```
@@ -22,7 +22,7 @@ python run.py --mode=tune_price --sales=data/sales.tsv --customers=data/customer
 sudo docker build --tag predict_sales .
 ```
 
-### Training an predict
+### Training and predict
 ```
 
  sudo docker run -v $dir/:$dir/  -i --rm predict_sales --mode=train --sales=$dir/data/sales.tsv --customers=$dir/data/customers.tsv --train_size=0.65 --output_model=$dir/models/5.model --n_month=3
